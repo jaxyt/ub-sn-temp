@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+my profile
+{% endblock title %}
+
+{% block content %}
+<div class="ui segment">
+<h3>login: </h3>
+<div class="ui grid">
+        <div class='row'>
+            <div class='six wide column'>
+            </div>
+            <div class="ten wide column">
+		<form method="POST" class="form-group">
+			{% csrf_token %}
+			{{form}}
+			<p>Don't have an accoount? Create one <a href="/register">here</a></p>
+			<button type="submit" class="btn btn-success">Login</button>
+		</form>
+            </div>
+        </div>
+</div>
+{% endblock content %}

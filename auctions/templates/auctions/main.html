@@ -29,7 +29,9 @@
                 {% endif %}
             </div>
             <div class="content">
+                <p> {{ obj.name }} </p>
                 <p> {{ obj.content }} </p>
+                <p> {{ obj.start_price }} </p>
                 <div class="right floated">
                     <form action="{% url 'auctions:watch-auction-view' %}" method="POST" class='watch-form' id='{{obj.id}}'>
                         {% csrf_token %}
@@ -67,7 +69,7 @@
                         <div class="ui segment mb-5">
                             <img class="ui avatar image" src={{b.bidder.avatar.url}}>
                             <span>{{ b.bidder }}</span>
-                            <div class='mt-5'>{{ b.body }}</div>
+                            <div class='mt-5'>{{ b.max_bid_price }}</div>
                         </div>
                     
                     {% endfor %}

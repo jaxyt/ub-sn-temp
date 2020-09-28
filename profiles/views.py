@@ -108,6 +108,8 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
         context["rel_sender"] = rel_sender
         context['posts'] = self.get_object().get_all_authors_posts()
         context['len_posts'] = True if len(self.get_object().get_all_authors_posts()) > 0 else False
+        context['auctions'] = self.get_object().get_all_owners_auctions()
+        context['len_auctions'] = True if len(self.get_object().get_all_owners_auctions()) > 0 else False
         return context
 
 class ProfileListView(LoginRequiredMixin, ListView):

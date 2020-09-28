@@ -82,6 +82,27 @@ class Profile(models.Model):
             total_liked += item.liked.all().count()
         return total_liked
 
+    def get_auctions_no(self):
+        return self.auctions.all().count()
+
+    def get_all_owners_auctions(self):
+        return self.auctions.all()
+
+    def get_watches_given_no(self):
+        watches = self.watch_set.all()
+        total_watched = 0
+        for item in watches:
+            if item.value=='Watch':
+                total_watched += 1
+        return total_watched
+
+    def get_watches_recieved_no(self):
+        auctions = self.auctions.all()
+        total_watched = 0
+        for item in auctions:
+            total_watched += item.watched.all().count()
+        return total_watched
+
 
     __initial_first_name = None
     __initial_last_name = None

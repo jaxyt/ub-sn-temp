@@ -1,7 +1,8 @@
 import requests
 import json
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
+import termplotlib as tpl
 
 overpass_url = "http://overpass-api.de/api/interpreter"
 overpass_query = """
@@ -29,9 +30,12 @@ for element in data['elements']:
     coords.append((lon, lat))
 # Convert coordinates into numpy array
 X = np.array(coords)
-plt.plot(X[:, 0], X[:, 1], 'o')
-plt.title('Biergarten in Germany')
-plt.xlabel('Longitude')
-plt.ylabel('Latitude')
-plt.axis('equal')
-print(plt)
+# plt.plot(X[:, 0], X[:, 1], 'o')
+# plt.title('Biergarten in Germany')
+# plt.xlabel('Longitude')
+# plt.ylabel('Latitude')
+# plt.axis('equal')
+# print(plt)
+fig = tpl.figure()
+fig.plot(X[:, 0], X[:, 1], label="data", width=55, height=20)
+fig.show()

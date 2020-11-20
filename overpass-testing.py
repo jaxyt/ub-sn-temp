@@ -3,7 +3,6 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
-matplotlib.rcParams['backend'] = "Qt4Agg"
 
 overpass_url = "http://overpass-api.de/api/interpreter"
 overpass_query = """
@@ -36,4 +35,4 @@ plt.title('Biergarten in Germany')
 plt.xlabel('Longitude')
 plt.ylabel('Latitude')
 plt.axis('equal')
-plt.show()
+print(plt)

@@ -2,7 +2,6 @@ import requests
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib
 
 overpass_url = "http://overpass-api.de/api/interpreter"
 overpass_query = """

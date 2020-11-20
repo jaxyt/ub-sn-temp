@@ -2,6 +2,8 @@ import requests
 import json
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['backend'] = "Qt4Agg"
 
 overpass_url = "http://overpass-api.de/api/interpreter"
 overpass_query = """
@@ -13,8 +15,7 @@ area["ISO3166-1"="DE"][admin_level=2];
 );
 out center;
 """
-response = requests.get(overpass_url, 
-                        params={'data': overpass_query})
+response = requests.get(overpass_url, params={'data': overpass_query})
 data = response.json()
 
 # Collect coords into list
